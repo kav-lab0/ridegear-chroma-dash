@@ -9,30 +9,30 @@
 @layer base {
   :root {
     /* Background & Surfaces */
-    --background: 220 25% 6%;
-    --surface: 220 20% 10%;
-    --glass: 220 18% 12%;
+    --background: 220 40% 3%;
+    --surface: 220 30% 5%;
+    --glass: 220 25% 8%;
     --foreground: 210 40% 98%;
 
     /* Glass Effects */
-    --glass-border: 220 30% 75%;
-    --glass-bg: 220 18% 12%;
-    --glass-shadow: 220 50% 3%;
+    --glass-border: 220 60% 85%;
+    --glass-bg: 220 25% 8%;
+    --glass-shadow: 220 60% 2%;
 
-    /* Primary Brand Colors - Dark Blue Metallic */
-    --primary: 220 85% 45%;
-    --primary-glow: 220 85% 55%;
-    --primary-foreground: 220 25% 6%;
+    /* Primary Brand Colors - Almost Black Metallic Blue */
+    --primary: 220 95% 25%;
+    --primary-glow: 220 95% 35%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Secondary Colors - Steel Blue */
-    --secondary: 215 60% 35%;
-    --secondary-glow: 215 60% 45%;
-    --secondary-foreground: 220 25% 6%;
+    /* Secondary Colors - Dark Steel Blue */
+    --secondary: 215 80% 20%;
+    --secondary-glow: 215 80% 30%;
+    --secondary-foreground: 210 40% 98%;
 
-    /* Accent Colors - Metallic Gold */
-    --accent: 45 80% 60%;
-    --accent-glow: 45 80% 70%;
-    --accent-foreground: 220 25% 6%;
+    /* Accent Colors - Bright Metallic Silver */
+    --accent: 220 20% 80%;
+    --accent-glow: 220 30% 90%;
+    --accent-foreground: 220 40% 3%;
 
     /* Neutral Colors */
     --muted: 220 15% 18%;
@@ -53,11 +53,11 @@
     --input-bg: 220 20% 8%;
     --ring: 220 85% 45%;
 
-    /* Gradients - Dark Blue Metallic Theme */
-    --gradient-primary: linear-gradient(135deg, hsl(220 85% 45%) 0%, hsl(215 60% 35%) 50%, hsl(220 25% 15%) 100%);
-    --gradient-surface: linear-gradient(135deg, hsl(220 18% 12% / 0.8) 0%, hsl(220 20% 10% / 0.9) 100%);
-    --gradient-glow: radial-gradient(circle at center, hsl(220 85% 45% / 0.3) 0%, transparent 70%);
-    --gradient-metallic: linear-gradient(135deg, hsl(220 85% 45%) 0%, hsl(215 60% 35%) 25%, hsl(220 30% 75%) 50%, hsl(215 60% 35%) 75%, hsl(220 85% 45%) 100%);
+    /* Gradients - Almost Black Glossy Metallic Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(220 40% 3%) 0%, hsl(220 30% 5%) 50%, hsl(220 25% 8%) 100%);
+    --gradient-surface: linear-gradient(135deg, hsl(220 25% 8% / 0.8) 0%, hsl(220 30% 5% / 0.9) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(220 95% 25% / 0.4) 0%, transparent 70%);
+    --gradient-metallic: linear-gradient(135deg, hsl(220 95% 25%) 0%, hsl(215 80% 20%) 25%, hsl(220 20% 80%) 50%, hsl(215 80% 20%) 75%, hsl(220 95% 25%) 100%);
 
     /* Shadows - Enhanced for Metallic Look */
     --shadow-glass: 0 8px 32px hsl(220 50% 3% / 0.4);
