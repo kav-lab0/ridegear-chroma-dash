@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				poppins: ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -26,24 +29,39 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					foreground: 'hsl(var(--secondary-foreground))',
+					glow: 'hsl(var(--secondary-glow))'
 				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
+				accent: {
+					DEFAULT: 'hsl(var(--accent))',
+					foreground: 'hsl(var(--accent-foreground))',
+					glow: 'hsl(var(--accent-glow))'
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
 				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))'
 				},
+				glass: {
+					DEFAULT: 'hsl(var(--glass))',
+					bg: 'hsl(var(--glass-bg))',
+					border: 'hsl(var(--glass-border))',
+					shadow: 'hsl(var(--glass-shadow))'
+				},
+				surface: 'hsl(var(--surface))',
+				hover: 'hsl(var(--hover))',
+				focus: 'hsl(var(--focus))',
+				success: 'hsl(var(--success))',
+				warning: 'hsl(var(--warning))',
+				'input-bg': 'hsl(var(--input-bg))',
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
@@ -62,6 +80,20 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-surface': 'var(--gradient-surface)',
+				'gradient-glow': 'var(--gradient-glow)'
+			},
+			boxShadow: {
+				'glass': 'var(--shadow-glass)',
+				'glow': 'var(--shadow-glow)',
+				'glow-secondary': 'var(--shadow-glow-secondary)'
+			},
+			transitionTimingFunction: {
+				'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

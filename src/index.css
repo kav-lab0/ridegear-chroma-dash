@@ -1,42 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* RIDEGEAR Design System - Futuristic Glassmorphism Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Background & Surfaces */
+    --background: 225 39% 8%;
+    --surface: 225 25% 12%;
+    --glass: 225 25% 15%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Glass Effects */
+    --glass-border: 210 50% 85%;
+    --glass-bg: 225 25% 15%;
+    --glass-shadow: 225 50% 5%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Primary Brand Colors */
+    --primary: 195 100% 60%;
+    --primary-glow: 195 100% 70%;
+    --primary-foreground: 225 39% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Secondary Colors */
+    --secondary: 270 100% 75%;
+    --secondary-glow: 270 100% 85%;
+    --secondary-foreground: 225 39% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Accent Colors */
+    --accent: 50 100% 60%;
+    --accent-glow: 50 100% 70%;
+    --accent-foreground: 225 39% 8%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Neutral Colors */
+    --muted: 225 15% 20%;
+    --muted-foreground: 210 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Interactive States */
+    --hover: 195 100% 65%;
+    --focus: 270 100% 80%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Status Colors */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders & Inputs */
+    --border: 225 25% 25%;
+    --input-bg: 225 25% 12%;
+    --ring: 195 100% 60%;
 
-    --radius: 0.5rem;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 60%) 0%, hsl(270 100% 75%) 100%);
+    --gradient-surface: linear-gradient(135deg, hsl(225 25% 15% / 0.8) 0%, hsl(225 25% 12% / 0.9) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(195 100% 60% / 0.3) 0%, transparent 70%);
+
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsl(225 50% 5% / 0.3);
+    --shadow-glow: 0 0 40px hsl(195 100% 60% / 0.3);
+    --shadow-glow-secondary: 0 0 40px hsl(270 100% 75% / 0.3);
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1.25rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +131,103 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
+    background: var(--gradient-primary);
+    min-height: 100vh;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glass Morphism Effects */
+  .glass {
+    background: hsl(var(--glass-bg) / 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border) / 0.2);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-strong {
+    background: hsl(var(--glass-bg) / 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border) / 0.3);
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Glowing Effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--shadow-glow-secondary);
+  }
+
+  /* Buttons */
+  .btn-glass {
+    @apply glass rounded-[var(--radius)] px-6 py-3 font-semibold text-foreground;
+    @apply hover:bg-primary/20 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)];
+    @apply transition-all duration-300 backdrop-blur-md;
+    @apply active:scale-95 transform;
+  }
+
+  .btn-glow {
+    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground;
+    @apply rounded-[var(--radius)] px-8 py-4 font-bold tracking-wide;
+    @apply hover:scale-105 hover:shadow-[0_0_40px_hsl(var(--primary)/0.6)];
+    @apply transition-all duration-300 transform;
+    @apply active:scale-95;
+  }
+
+  /* Cards */
+  .card-glass {
+    @apply glass rounded-[var(--radius)] p-6;
+    @apply hover:border-primary/30 hover:shadow-[0_20px_40px_hsl(var(--glass-shadow)/0.4)];
+    @apply transition-all duration-300 transform hover:scale-105;
+  }
+
+  /* Text Effects */
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.6);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 20px hsl(var(--secondary) / 0.6);
+  }
+
+  /* Navigation */
+  .nav-glass {
+    @apply glass-strong fixed top-0 left-0 right-0 z-50;
+    @apply border-b border-glass-border/20;
+  }
+
+  /* Input Fields */
+  .input-glass {
+    @apply glass rounded-[var(--radius)] border-glass-border/30;
+    @apply bg-input-bg/50 text-foreground placeholder:text-muted-foreground;
+    @apply focus:border-primary/50 focus:ring-2 focus:ring-primary/20;
+    @apply transition-all duration-300;
+  }
+
+  /* Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow-pulse {
+  from { filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.3)); }
+  to { filter: drop-shadow(0 0 30px hsl(var(--primary) / 0.6)); }
 }
