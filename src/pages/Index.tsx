@@ -7,6 +7,7 @@ import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import ShoppingCart from "../components/ShoppingCart";
 import { useToast } from "@/hooks/use-toast";
+import { type Product } from "../data/products";
 
 interface CartItem {
   id: string;
@@ -21,7 +22,7 @@ const Index = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { toast } = useToast();
 
-  const addToCart = (product: any) => {
+  const addToCart = (product: Product) => {
     setCartItems(prev => {
       const existingItem = prev.find(item => item.id === product.id);
       if (existingItem) {

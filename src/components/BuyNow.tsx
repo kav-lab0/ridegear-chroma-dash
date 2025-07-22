@@ -1,28 +1,18 @@
 import { Button } from "./ui/button";
 import { Star, Zap, Shield, Truck } from "lucide-react";
+import { type Product } from "../data/products";
 
 // Import product images
 import silencerImg from "../assets/silencer.png";
 import helmetImg from "../assets/helmet.png";
 import headlightImg from "../assets/headlight.png";
 
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  originalPrice: number;
-  image: string;
-  rating: number;
-  badge?: string;
-}
-
 interface BuyNowProps {
-  onAddToCart: (product: any) => void;
+  onAddToCart: (product: Product) => void;
 }
 
 const BuyNow = ({ onAddToCart }: BuyNowProps) => {
-  const featuredProducts: Product[] = [
+  const featuredProducts: Partial<Product>[] = [
     {
       id: "featured-1",
       name: "Elite Performance Kit",
@@ -31,7 +21,12 @@ const BuyNow = ({ onAddToCart }: BuyNowProps) => {
       originalPrice: 1299,
       image: silencerImg,
       rating: 4.9,
-      badge: "BESTSELLER"
+      category: "Kits",
+      brand: "RIDEGEAR Pro",
+      reviews: 89,
+      inStock: true,
+      featured: true,
+      tags: ["complete kit", "performance", "premium"]
     },
     {
       id: "featured-2", 
@@ -41,7 +36,12 @@ const BuyNow = ({ onAddToCart }: BuyNowProps) => {
       originalPrice: 699,
       image: helmetImg,
       rating: 4.8,
-      badge: "AWARD WINNER"
+      category: "Helmets",
+      brand: "Carbon Elite", 
+      reviews: 156,
+      inStock: true,
+      featured: true,
+      tags: ["award winning", "safety", "technology"]
     },
     {
       id: "featured-3",
@@ -51,7 +51,12 @@ const BuyNow = ({ onAddToCart }: BuyNowProps) => {
       originalPrice: 399,
       image: headlightImg,
       rating: 4.7,
-      badge: "HOT DEAL"
+      category: "Headlights",
+      brand: "Velocity",
+      reviews: 134,
+      inStock: true,
+      featured: true,
+      tags: ["LED", "adaptive", "weather resistant"]
     }
   ];
 
@@ -104,11 +109,9 @@ const BuyNow = ({ onAddToCart }: BuyNowProps) => {
           {featuredProducts.map((product) => (
             <div key={product.id} className="card-glass relative overflow-hidden group">
               {/* Badge */}
-              {product.badge && (
-                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-accent to-primary text-accent-foreground px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
-                  {product.badge}
-                </div>
-              )}
+              <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-accent to-primary text-accent-foreground px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                {product.price && product.originalPrice && `SAVE $${product.originalPrice - product.price}`}
+              </div>
 
               {/* Product Image */}
               <div className="relative overflow-hidden rounded-lg mb-6 bg-surface/50 p-4">
@@ -159,12 +162,7 @@ const BuyNow = ({ onAddToCart }: BuyNowProps) => {
 
                 {/* CTA Button */}
                 <Button
-                  onClick={() => onAddToCart({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    image: product.image
-                  })}
+                  onClick={() => onAddToCart(product as Product)}
                   className="btn-glow w-full py-3 text-lg"
                 >
                   Buy Now - Limited Time!
