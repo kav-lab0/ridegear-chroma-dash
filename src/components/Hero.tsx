@@ -15,7 +15,7 @@ const Hero = ({ onBrowseCatalog, onBuildKit }: HeroProps) => {
           <div className="space-y-4">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-glow leading-tight">
               Premium Accessories for{" "}
-              <span className="text-glow-secondary bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <span className="metallic-text font-extrabold">
                 Superbike Freaks
               </span>
             </h1>

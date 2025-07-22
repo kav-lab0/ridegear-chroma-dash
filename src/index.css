@@ -9,38 +9,38 @@
 @layer base {
   :root {
     /* Background & Surfaces */
-    --background: 225 39% 8%;
-    --surface: 225 25% 12%;
-    --glass: 225 25% 15%;
+    --background: 220 25% 6%;
+    --surface: 220 20% 10%;
+    --glass: 220 18% 12%;
     --foreground: 210 40% 98%;
 
     /* Glass Effects */
-    --glass-border: 210 50% 85%;
-    --glass-bg: 225 25% 15%;
-    --glass-shadow: 225 50% 5%;
+    --glass-border: 220 30% 75%;
+    --glass-bg: 220 18% 12%;
+    --glass-shadow: 220 50% 3%;
 
-    /* Primary Brand Colors */
-    --primary: 195 100% 60%;
-    --primary-glow: 195 100% 70%;
-    --primary-foreground: 225 39% 8%;
+    /* Primary Brand Colors - Dark Blue Metallic */
+    --primary: 220 85% 45%;
+    --primary-glow: 220 85% 55%;
+    --primary-foreground: 220 25% 6%;
 
-    /* Secondary Colors */
-    --secondary: 270 100% 75%;
-    --secondary-glow: 270 100% 85%;
-    --secondary-foreground: 225 39% 8%;
+    /* Secondary Colors - Steel Blue */
+    --secondary: 215 60% 35%;
+    --secondary-glow: 215 60% 45%;
+    --secondary-foreground: 220 25% 6%;
 
-    /* Accent Colors */
-    --accent: 50 100% 60%;
-    --accent-glow: 50 100% 70%;
-    --accent-foreground: 225 39% 8%;
+    /* Accent Colors - Metallic Gold */
+    --accent: 45 80% 60%;
+    --accent-glow: 45 80% 70%;
+    --accent-foreground: 220 25% 6%;
 
     /* Neutral Colors */
-    --muted: 225 15% 20%;
-    --muted-foreground: 210 20% 65%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 15% 65%;
 
     /* Interactive States */
-    --hover: 195 100% 65%;
-    --focus: 270 100% 80%;
+    --hover: 220 85% 50%;
+    --focus: 215 60% 40%;
 
     /* Status Colors */
     --destructive: 0 84% 60%;
@@ -49,19 +49,21 @@
     --warning: 38 92% 50%;
 
     /* Borders & Inputs */
-    --border: 225 25% 25%;
-    --input-bg: 225 25% 12%;
-    --ring: 195 100% 60%;
+    --border: 220 20% 22%;
+    --input-bg: 220 20% 8%;
+    --ring: 220 85% 45%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(195 100% 60%) 0%, hsl(270 100% 75%) 100%);
-    --gradient-surface: linear-gradient(135deg, hsl(225 25% 15% / 0.8) 0%, hsl(225 25% 12% / 0.9) 100%);
-    --gradient-glow: radial-gradient(circle at center, hsl(195 100% 60% / 0.3) 0%, transparent 70%);
+    /* Gradients - Dark Blue Metallic Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(220 85% 45%) 0%, hsl(215 60% 35%) 50%, hsl(220 25% 15%) 100%);
+    --gradient-surface: linear-gradient(135deg, hsl(220 18% 12% / 0.8) 0%, hsl(220 20% 10% / 0.9) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(220 85% 45% / 0.3) 0%, transparent 70%);
+    --gradient-metallic: linear-gradient(135deg, hsl(220 85% 45%) 0%, hsl(215 60% 35%) 25%, hsl(220 30% 75%) 50%, hsl(215 60% 35%) 75%, hsl(220 85% 45%) 100%);
 
-    /* Shadows */
-    --shadow-glass: 0 8px 32px hsl(225 50% 5% / 0.3);
-    --shadow-glow: 0 0 40px hsl(195 100% 60% / 0.3);
-    --shadow-glow-secondary: 0 0 40px hsl(270 100% 75% / 0.3);
+    /* Shadows - Enhanced for Metallic Look */
+    --shadow-glass: 0 8px 32px hsl(220 50% 3% / 0.4);
+    --shadow-glow: 0 0 40px hsl(220 85% 45% / 0.4);
+    --shadow-glow-secondary: 0 0 40px hsl(215 60% 35% / 0.4);
+    --shadow-metallic: 0 4px 20px hsl(220 85% 45% / 0.3), inset 0 1px 0 hsl(220 30% 75% / 0.2);
 
     /* Animation */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -175,11 +177,29 @@
   }
 
   .btn-glow {
-    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground;
+    background: var(--gradient-metallic);
+    @apply text-primary-foreground;
     @apply rounded-[var(--radius)] px-8 py-4 font-bold tracking-wide;
     @apply hover:scale-105 hover:shadow-[0_0_40px_hsl(var(--primary)/0.6)];
     @apply transition-all duration-300 transform;
     @apply active:scale-95;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--glass-border) / 0.4), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-glow:hover::before {
+    left: 100%;
   }
 
   /* Cards */
@@ -220,6 +240,22 @@
   .animate-glow-pulse {
     animation: glow-pulse 2s ease-in-out infinite alternate;
   }
+
+  /* Metallic Effects */
+  .metallic-border {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--glass-bg), var(--glass-bg)) padding-box,
+                var(--gradient-metallic) border-box;
+  }
+
+  .metallic-text {
+    background: var(--gradient-metallic);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    animation: metallic-shine 3s ease-in-out infinite;
+  }
 }
 
 @keyframes float {
@@ -230,4 +266,9 @@
 @keyframes glow-pulse {
   from { filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.3)); }
   to { filter: drop-shadow(0 0 30px hsl(var(--primary) / 0.6)); }
+}
+
+@keyframes metallic-shine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }

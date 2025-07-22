@@ -84,12 +84,14 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-surface': 'var(--gradient-surface)',
-				'gradient-glow': 'var(--gradient-glow)'
+				'gradient-glow': 'var(--gradient-glow)',
+				'gradient-metallic': 'var(--gradient-metallic)'
 			},
 			boxShadow: {
 				'glass': 'var(--shadow-glass)',
 				'glow': 'var(--shadow-glow)',
-				'glow-secondary': 'var(--shadow-glow-secondary)'
+				'glow-secondary': 'var(--shadow-glow-secondary)',
+				'metallic': 'var(--shadow-metallic)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
