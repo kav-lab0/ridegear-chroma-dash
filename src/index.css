@@ -9,121 +9,144 @@
 @layer base {
   :root {
     /* Background & Surfaces */
-    --background: 220 40% 3%;
-    --surface: 220 30% 5%;
-    --glass: 220 25% 8%;
-    --foreground: 210 40% 98%;
+    --background: 220 40% 2%; /* Even darker */
+    --surface: 220 30% 6%;
+    --glass: 220 25% 10%;
+    --foreground: 0 0% 98%;
 
     /* Glass Effects */
-    --glass-border: 220 60% 85%;
-    --glass-bg: 220 25% 8%;
-    --glass-shadow: 220 60% 2%;
+    --glass-border: 0 0% 85%;
+    --glass-bg: 0 0% 10%;
+    --glass-shadow: 0 0% 2%;
 
-    /* Primary Brand Colors - Almost Black Metallic Blue */
-    --primary: 220 95% 25%;
-    --primary-glow: 220 95% 35%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary Brand Colors - Red */
+    --primary: 0 84% 60%;
+    --primary-glow: 0 84% 70%;
+    --primary-foreground: 0 0% 98%;
 
-    /* Secondary Colors - Dark Steel Blue */
-    --secondary: 215 80% 20%;
-    --secondary-glow: 215 80% 30%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary Colors - Dark Gray */
+    --secondary: 0 0% 15%;
+    --secondary-glow: 0 0% 25%;
+    --secondary-foreground: 0 0% 98%;
 
-    /* Accent Colors - Bright Metallic Silver */
-    --accent: 220 20% 80%;
-    --accent-glow: 220 30% 90%;
-    --accent-foreground: 220 40% 3%;
+    /* Accent Colors - Silver/White */
+    --accent: 0 0% 85%;
+    --accent-glow: 0 0% 95%;
+    --accent-foreground: 0 0% 3%;
 
     /* Neutral Colors */
-    --muted: 220 15% 18%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
 
     /* Interactive States */
-    --hover: 220 85% 50%;
-    --focus: 215 60% 40%;
+    --hover: 0 84% 70%;
+    --focus: 0 84% 40%;
 
     /* Status Colors */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
     --success: 142 76% 36%;
     --warning: 38 92% 50%;
 
     /* Borders & Inputs */
-    --border: 220 20% 22%;
-    --input-bg: 220 20% 8%;
-    --ring: 220 85% 45%;
+    --border: 0 0% 22%;
+    --input-bg: 0 0% 8%;
+    --ring: 0 84% 45%;
 
-    /* Gradients - Almost Black Glossy Metallic Theme */
-    --gradient-primary: linear-gradient(135deg, hsl(220 40% 3%) 0%, hsl(220 30% 5%) 50%, hsl(220 25% 8%) 100%);
-    --gradient-surface: linear-gradient(135deg, hsl(220 25% 8% / 0.8) 0%, hsl(220 30% 5% / 0.9) 100%);
-    --gradient-glow: radial-gradient(circle at center, hsl(220 95% 25% / 0.4) 0%, transparent 70%);
-    --gradient-metallic: linear-gradient(135deg, hsl(220 95% 25%) 0%, hsl(215 80% 20%) 25%, hsl(220 20% 80%) 50%, hsl(215 80% 20%) 75%, hsl(220 95% 25%) 100%);
-
-    /* Shadows - Enhanced for Metallic Look */
-    --shadow-glass: 0 8px 32px hsl(220 50% 3% / 0.4);
-    --shadow-glow: 0 0 40px hsl(220 85% 45% / 0.4);
-    --shadow-glow-secondary: 0 0 40px hsl(215 60% 35% / 0.4);
-    --shadow-metallic: 0 4px 20px hsl(220 85% 45% / 0.3), inset 0 1px 0 hsl(220 30% 75% / 0.2);
-
-    /* Animation */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    --radius: 1.25rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Gradients - Red/Black Glossy Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(0 84% 10%) 0%, hsl(0 84% 20%) 50%, hsl(0 84% 30%) 100%);
+    --gradient-surface: linear-gradient(135deg, hsl(0 0% 10% / 0.8) 0%, hsl(0 0% 6% / 0.9) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(0 84% 60% / 0.4) 0%, transparent 70%);
+    --gradient-metallic: linear-gradient(135deg, #ef4444 0%, #fff 40%, #b91c1c 60%, #ef4444 100%);
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  /* Make all buttons, inputs, cards, and glass elements very rounded and use black/gray/red theme */
+  button, .btn, .btn-glow, .btn-glass, .glass, .glass-strong, .input, input, textarea, select, .card, .card-glass {
+    border-radius: 1.5rem !important;
+    background-color: #18181b !important;
+    color: #f5f5f5 !important;
+    border: 1px solid #232323 !important;
+  }
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+  .btn-glow, .btn-glass {
+    box-shadow: 0 2px 16px 0 #ef444444;
+  }
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+  .input, input, textarea, select {
+    background-color: #18181b !important;
+    color: #f5f5f5 !important;
+    border: 1px solid #232323 !important;
+  }
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+  .glass, .glass-strong, .card-glass {
+    background: rgba(24,24,27,0.95) !important;
+    box-shadow: 0 4px 32px 0 #000a;
+    border: 1px solid #232323 !important;
+  }
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+  .text-glow, .text-glow-secondary {
+    color: #f5f5f5 !important;
+    text-shadow: 0 2px 8px #ef444488;
+  }
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+  .text-muted-foreground {
+    color: #d1d5db !important; /* light gray for dark bg */
+  }
+  .text-secondary-foreground {
+    color: #f3f4f6 !important; /* even lighter gray/white */
+  }
+  .text-foreground {
+    color: #fff !important;
+  }
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+  /* Force navbar nav button text to always be bright red, no hover change */
+  nav button,
+  nav button:visited,
+  nav button:hover,
+  nav button:focus {
+    color: #ef4444 !important;
+    transition: none !important;
+  }
+}
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+body, #root {
+  min-height: 100vh;
+  /* Pure black with a sharp, focused studio spotlight */
+  background:
+    radial-gradient(ellipse 60% 40% at 70% 30%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 40%, rgba(0,0,0,0.0) 70%),
+    #000;
+  background-attachment: fixed;
+  color: hsl(var(--foreground));
+}
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+/* Subtle radial red glow in lower-right */
+.studio-red-glow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  left: 60vw;
+  top: 65vh;
+  width: 60vw;
+  height: 60vh;
+  transform: translate(-10%, -10%);
+  background: radial-gradient(
+    ellipse at 60% 80%,
+    rgba(239, 68, 68, 0.18) 0%,
+    rgba(239, 68, 68, 0.10) 30%,
+    rgba(239, 68, 68, 0.04) 60%,
+    rgba(0,0,0,0) 100%
+  );
+  filter: blur(32px);
+  max-width: 1200px;
+  max-height: 800px;
+}
+@media (max-width: 900px) {
+  .studio-red-glow {
+    width: 90vw;
+    height: 40vh;
+    left: 40vw;
+    top: 75vh;
+    filter: blur(24px);
   }
 }
 
@@ -132,14 +155,19 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-poppins;
-    background: var(--gradient-primary);
-    min-height: 100vh;
-  }
-
   html {
     scroll-behavior: smooth;
+  }
+
+  nav button,
+  nav button:visited {
+    color: #ef4444 !important;
+    transition: color 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.2s cubic-bezier(0.4,0,0.2,1) !important;
+  }
+  nav button:hover,
+  nav button:focus {
+    color: #b91c1c !important;
+    transform: scale(1.08);
   }
 }
 
@@ -170,17 +198,17 @@
 
   /* Buttons */
   .btn-glass {
-    @apply glass rounded-[var(--radius)] px-6 py-3 font-semibold text-foreground;
-    @apply hover:bg-primary/20 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)];
+    @apply glass rounded-[var(--radius)] px-6 py-3 font-semibold text-[#ef4444] bg-white border-[#ef4444] border;
+    @apply hover:bg-[#ef4444] hover:text-white hover:border-[#b91c1c] hover:shadow-[0_0_30px_#ef444488];
     @apply transition-all duration-300 backdrop-blur-md;
     @apply active:scale-95 transform;
   }
 
   .btn-glow {
-    background: var(--gradient-metallic);
-    @apply text-primary-foreground;
+    background: linear-gradient(90deg, #ef4444 0%, #b91c1c 100%);
+    @apply text-white;
     @apply rounded-[var(--radius)] px-8 py-4 font-bold tracking-wide;
-    @apply hover:scale-105 hover:shadow-[0_0_40px_hsl(var(--primary)/0.6)];
+    @apply hover:scale-105 hover:shadow-[0_0_40px_#ef444488];
     @apply transition-all duration-300 transform;
     @apply active:scale-95;
     position: relative;
@@ -194,7 +222,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(var(--glass-border) / 0.4), transparent);
+    background: linear-gradient(90deg, transparent, #fff4, transparent);
     transition: left 0.5s;
   }
 
@@ -205,30 +233,30 @@
   /* Cards */
   .card-glass {
     @apply glass rounded-[var(--radius)] p-6;
-    @apply hover:border-primary/30 hover:shadow-[0_20px_40px_hsl(var(--glass-shadow)/0.4)];
+    @apply hover:border-[#ef4444]/30 hover:shadow-[0_20px_40px_#ef444488];
     @apply transition-all duration-300 transform hover:scale-105;
   }
 
   /* Text Effects */
   .text-glow {
-    text-shadow: 0 0 20px hsl(var(--primary) / 0.6);
+    text-shadow: 0 0 6px #ef444488;
   }
 
   .text-glow-secondary {
-    text-shadow: 0 0 20px hsl(var(--secondary) / 0.6);
+    text-shadow: 0 0 6px #b91c1c66;
   }
 
   /* Navigation */
   .nav-glass {
     @apply glass-strong fixed top-0 left-0 right-0 z-50;
-    @apply border-b border-glass-border/20;
+    @apply border-b border-[#ef4444]/20;
   }
 
   /* Input Fields */
   .input-glass {
-    @apply glass rounded-[var(--radius)] border-glass-border/30;
+    @apply glass rounded-[var(--radius)] border-[#ef4444]/30;
     @apply bg-input-bg/50 text-foreground placeholder:text-muted-foreground;
-    @apply focus:border-primary/50 focus:ring-2 focus:ring-primary/20;
+    @apply focus:border-[#ef4444]/50 focus:ring-2 focus:ring-[#ef4444]/20;
     @apply transition-all duration-300;
   }
 
@@ -249,12 +277,12 @@
   }
 
   .metallic-text {
-    background: var(--gradient-metallic);
+    background: linear-gradient(135deg, #ef4444 0%, #fff 40%, #b91c1c 60%, #ef4444 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 100%;
-    animation: metallic-shine 3s ease-in-out infinite;
+    animation: metallic-shine-red 3s ease-in-out infinite;
   }
 }
 
@@ -268,7 +296,7 @@
   to { filter: drop-shadow(0 0 30px hsl(var(--primary) / 0.6)); }
 }
 
-@keyframes metallic-shine {
+@keyframes metallic-shine-red {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }

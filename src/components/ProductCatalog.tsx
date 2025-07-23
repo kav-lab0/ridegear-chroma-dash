@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -14,7 +14,7 @@ import {
   Package,
   TrendingUp
 } from "lucide-react";
-import { products, categories, brands, type Product } from "../data/products";
+import { categories, brands, type Product } from "../data/products";
 
 interface ProductCatalogProps {
   onAddToCart: (product: Product) => void;
@@ -23,6 +23,7 @@ interface ProductCatalogProps {
 type SortOption = "featured" | "price-low" | "price-high" | "rating" | "name" | "newest";
 
 const ProductCatalog = ({ onAddToCart }: ProductCatalogProps) => {
+  const [products, setProducts] = useState<Product[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedBrand, setSelectedBrand] = useState("All Brands");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
@@ -33,6 +34,13 @@ const ProductCatalog = ({ onAddToCart }: ProductCatalogProps) => {
   const [showInStockOnly, setShowInStockOnly] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/products")
+      .then(res => res.json())
+      .then(setProducts)
+      .catch(() => setProducts([]));
+  }, []);
 
   // Filter and sort products
   const filteredProducts = useMemo(() => {
@@ -86,7 +94,7 @@ const ProductCatalog = ({ onAddToCart }: ProductCatalogProps) => {
     });
 
     return filtered;
-  }, [selectedCategory, selectedBrand, searchQuery, sortBy, priceRange, showInStockOnly]);
+  }, [products, selectedCategory, selectedBrand, searchQuery, sortBy, priceRange, showInStockOnly]);
 
   // Pagination
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
@@ -113,7 +121,7 @@ const ProductCatalog = ({ onAddToCart }: ProductCatalogProps) => {
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-6xl font-bold metallic-text mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold metallic-text mb-4 leading-[1.18] pb-2">
             Massive Product Catalog
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">

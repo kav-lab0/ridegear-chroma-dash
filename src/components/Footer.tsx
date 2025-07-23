@@ -32,7 +32,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="glass-strong border-t border-glass-border/20 mt-20">
+    <footer id="footer" className="glass-strong border-t border-glass-border/20 mt-20">
       <div className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}

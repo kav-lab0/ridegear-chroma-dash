@@ -1,4 +1,5 @@
 import { Button } from "./ui/button";
+// Use the local asset for the hero bike image
 import heroBike from "../assets/hero-bike.png";
 
 interface HeroProps {
@@ -59,35 +60,29 @@ const Hero = ({ onBrowseCatalog, onBuildKit }: HeroProps) => {
 
         {/* Right Content - Bike Image */}
         <div className="relative">
-          <div className="relative animate-float">
+          <div className="relative">
+            {/* Soft red glow behind the bike */}
+            <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
+              <div className="w-4/5 h-3/5 bg-red-500 opacity-25 rounded-full blur-3xl"></div>
+            </div>
             <img
               src={heroBike}
-              alt="Futuristic Superbike"
-              className="w-full h-auto animate-glow-pulse"
+              alt="Sleek Red Sport Motorcycle Design"
+              className="w-full h-auto relative z-10"
             />
-            {/* Glow Effects */}
-            <div className="absolute inset-0 bg-gradient-glow rounded-full blur-3xl opacity-30 animate-pulse"></div>
           </div>
-          
           {/* Floating Elements */}
-          <div className="absolute top-10 right-10 glass p-4 rounded-lg animate-float" style={{ animationDelay: '1s' }}>
+          <div className="absolute top-10 right-10 glass p-4 rounded-lg" style={{ animationDelay: '1s' }}>
             <div className="text-sm font-semibold text-primary">Premium Quality</div>
             <div className="text-xs text-muted-foreground">Certified Products</div>
           </div>
-          
-          <div className="absolute bottom-10 left-10 glass p-4 rounded-lg animate-float" style={{ animationDelay: '2s' }}>
+          <div className="absolute bottom-10 left-10 glass p-4 rounded-lg" style={{ animationDelay: '2s' }}>
             <div className="text-sm font-semibold text-secondary">Fast Delivery</div>
             <div className="text-xs text-muted-foreground">Worldwide Shipping</div>
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
-        </div>
-      </div>
+      {/* Scroll Indicator removed */}
     </section>
   );
 };

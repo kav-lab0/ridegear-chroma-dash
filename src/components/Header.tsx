@@ -24,7 +24,7 @@ const Header = ({ cartCount, onCartClick }: HeaderProps) => {
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <h1 className="text-2xl md:text-3xl font-bold text-glow tracking-wider">
+          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest text-white text-glow" style={{letterSpacing: '0.18em', fontFamily: 'Poppins, Arial, sans-serif'}}>
             RIDEGEAR
           </h1>
         </div>
@@ -33,25 +33,28 @@ const Header = ({ cartCount, onCartClick }: HeaderProps) => {
         <nav className="hidden md:flex items-center space-x-8">
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-foreground hover:text-primary transition-colors font-medium"
+            className="text-[#ef4444] hover:text-[#b91c1c] transition-colors font-medium rounded-none px-4 py-2"
           >
             Home
           </button>
           <button
             onClick={() => scrollToSection('catalog')}
-            className="text-foreground hover:text-primary transition-colors font-medium"
+            className="text-[#ef4444] hover:text-[#b91c1c] transition-colors font-medium rounded-none px-4 py-2"
           >
             Catalog
           </button>
           <button
             onClick={() => scrollToSection('buy-now')}
-            className="text-foreground hover:text-primary transition-colors font-medium"
+            className="text-[#ef4444] hover:text-[#b91c1c] transition-colors font-medium rounded-none px-4 py-2"
           >
             Buy Now
           </button>
           <button
-            onClick={() => scrollToSection('contact')}
-            className="text-foreground hover:text-primary transition-colors font-medium"
+            onClick={() => {
+              const footer = document.getElementById('footer');
+              if (footer) footer.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="text-[#ef4444] transition-colors font-medium rounded-none px-4 py-2"
           >
             Contact Us
           </button>
@@ -101,25 +104,28 @@ const Header = ({ cartCount, onCartClick }: HeaderProps) => {
           <nav className="flex flex-col space-y-4">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-foreground hover:text-primary transition-colors font-medium text-left"
+              className="text-[#ef4444] hover:text-[#b91c1c] transition-colors font-medium text-left rounded-none px-4 py-2"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection('catalog')}
-              className="text-foreground hover:text-primary transition-colors font-medium text-left"
+              className="text-[#ef4444] hover:text-[#b91c1c] transition-colors font-medium text-left rounded-none px-4 py-2"
             >
               Catalog
             </button>
             <button
               onClick={() => scrollToSection('buy-now')}
-              className="text-foreground hover:text-primary transition-colors font-medium text-left"
+              className="text-[#ef4444] hover:text-[#b91c1c] transition-colors font-medium text-left rounded-none px-4 py-2"
             >
               Buy Now
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
-              className="text-foreground hover:text-primary transition-colors font-medium text-left"
+              onClick={() => {
+                const footer = document.getElementById('footer');
+                if (footer) footer.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="text-[#ef4444] hover:text-[#b91c1c] transition-colors font-medium text-left rounded-none px-4 py-2"
             >
               Contact Us
             </button>
